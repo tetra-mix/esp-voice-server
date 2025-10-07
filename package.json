@@ -1,0 +1,85 @@
+{
+  "name": "esp-voice-server",
+  "version": "0.1.0",
+  "description": "High-performance WebSocket-based voice processing backend for ESP32/M5Stack devices with real-time audio streaming, transcription, and synthesis",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:pcm": "tsx examples/test-pcm.ts",
+    "test:server": "tsx examples/test-server.ts",
+    "test:client": "tsx examples/test-client.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "voice",
+    "websocket",
+    "audio",
+    "streaming",
+    "transcription",
+    "speech-to-text",
+    "text-to-speech",
+    "realtime",
+    "pcm",
+    "whisper",
+    "google-speech",
+    "tts",
+    "m5stack",
+    "esp32",
+    "iot"
+  ],
+  "author": "tetra-mix",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tetra-mix/esp-voice-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tetra-mix/esp-voice-server/issues"
+  },
+  "homepage": "https://github.com/tetra-mix/esp-voice-server#readme",
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/ws": "^8.5.12",
+    "tsup": "^8.2.4",
+    "tsx": "^4.20.6",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  },
+  "peerDependencies": {
+    "@google-cloud/speech": "^6.0.0",
+    "openai": "^4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@google-cloud/speech": {
+      "optional": true
+    },
+    "openai": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
